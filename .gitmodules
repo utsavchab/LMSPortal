@@ -1,0 +1,3 @@
+[submodule "lms-portal-frontend"]
+	path = lms-portal-frontend
+	url = https://github.com/utsavchab/lms-portal-frontend.git
