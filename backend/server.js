@@ -9,7 +9,8 @@ import teacherRoutes from './routes/teacherRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
 import registerStudent from './routes/registerStudent.js'
 import loginStudent from './routes/loginStudent.js'
-
+import registerTeacher from './routes/registerTeacher.js'
+import loginTeacher from './routes/loginTeacher.js'
 dotenv.config()
 
 connectDB()
@@ -24,13 +25,15 @@ app.get('/', (req,res) => {
 	res.send("Server Running!!");
 });
 
-app.use('/api/teacher', teacherRoutes)
+// app.use('/api/teacher', teacherRoutes)
 app.use('/api/course', courseRoutes)
-app.use('/student_register' , registerStudent)
-app.use('/student_login' , loginStudent)
+app.use('/api/student/register' , registerStudent)
+app.use('/api/student/login' , loginStudent)
+app.use('/api/teacher/register', registerTeacher)
+app.use('/api/teacher/login', loginTeacher)
+
 
 const port = 8000 || process.env.PORT;
-
 app.listen(port, () => {
 	console.log(`Listening to port ${port}`);
 });

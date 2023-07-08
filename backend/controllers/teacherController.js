@@ -14,7 +14,7 @@ const authUser = asyncHandler(async(req,res) => {
 
 	if(user) {
 		const { hashPassword } = user
-		const verified = bcrypt.compareSync(password, hashPassword);
+		const verified = await bcrypt.compareSync(password, hashPassword);
 		if(verified) {
 			res.status(201).json({
 				_id: user._id,
@@ -59,7 +59,7 @@ const registerUser = asyncHandler(async(req,res) => {
 	}
 
 	const salt = bcrypt.genSaltSync(10);
-	const hashPassword = bcrypt.hashSync(password, salt);
+	const hashPassword = await bcrypt.hashSync(password, salt);
 	const user_type = "teacher"
 
 	const user = await Teacher.create({

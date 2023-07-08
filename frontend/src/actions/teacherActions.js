@@ -20,10 +20,10 @@ export const login = (tchr_email, password) => async (dispatch) => {
 				'Content-type': 'application/json'
 			}
 		}
-
-		const { data } = await axios.post('/api/teacher/login', 
+		
+		const { data } = await axios.post(`${process.env.REACT_APP_BASE}/api/teacher/login`, 
 			{ tchr_email, password, config })
-
+		
 		dispatch({
 			type: TEACHER_LOGIN_SUCCESS,
 			payload: data
@@ -50,7 +50,7 @@ export const logout = () => (dispatch) => {
 	})
 }
 
-export const register = (tchr_name, tchr_email, password, tchr_mobile, tchr_address, tchr_pic) => async (dispatch) => {
+export const register = (tchr_name, tchr_email, password, tchr_mobile, tchr_address) => async (dispatch) => {
 	try {
 		dispatch({
 			type: TEACHER_REGISTER_REQUEST
@@ -62,8 +62,8 @@ export const register = (tchr_name, tchr_email, password, tchr_mobile, tchr_addr
 			}
 		}
 
-		const { data } = await axios.post('/api/teacher/register', 
-			{ tchr_name, tchr_email, password, tchr_mobile, tchr_address, tchr_pic }, config)
+		const { data } = await axios.post(`${process.env.REACT_APP_BASE}/api/teacher/register`, 
+			{ tchr_name, tchr_email, password, tchr_mobile, tchr_address }, config)
 
 		dispatch({
 			type: TEACHER_REGISTER_SUCCESS,
@@ -84,7 +84,7 @@ export const register = (tchr_name, tchr_email, password, tchr_mobile, tchr_addr
 			type: TEACHER_REGISTER_FAIL,
 			payload: error.response && error.response.data.message ? 
 			error.response.data.message :
-			error.message,
+			"Teacher Already Exists,\n Please use login tab below to LOGIN.",
 		})
 	}
 }

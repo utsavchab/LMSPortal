@@ -7,7 +7,7 @@ const router = express.Router()
 
 router.post('/', async (req, res) => {
 //    console.log(req.body);
-   const {name , email,phone,address, password1, password2} = req.body;
+   const {name , email,mobile,address, password} = req.body;
 //    console.log(name,email)
   
    
@@ -17,16 +17,17 @@ router.post('/', async (req, res) => {
             const newStudent =  new Student({
                 stud_name: name,
                 stud_email: email,
-                stud_mobile: phone,
+                stud_mobile: mobile,
                 stud_address: address,
-                password: password1,
+                password: password,
 
                 
             })
-            await newStudent.save().then(()=>{res.send("Registration Success!")}).catch((err)=>{res.send(err)})
+            
+            await newStudent.save().then(()=>{res.status(200).send(newStudent)}).catch((err)=>{res.status(404).send(err) ; console.log(err)})
         }else{
             
-            res.send("User Already Exist With This Email ID");
+            res.status(409).send("Email ID Already Exist")
         }
         
         

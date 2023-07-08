@@ -84,7 +84,7 @@ function TeacherTests() {
         />
 
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

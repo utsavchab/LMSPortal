@@ -121,7 +121,7 @@ function Courses() {
             ))}
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -6,9 +6,18 @@
 
 .app {
   text-align: left;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-html {font-family: 'Open Sans', sans-serif;}
+html {
+  font-family: 'Open Sans', sans-serif;
+  /* height: 100%; */
+  /* box-sizing: border-box; */
+}
+
+
 
 /* Typography */
 .light-300 {

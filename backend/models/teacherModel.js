@@ -10,14 +10,14 @@ const teacherSchema = mongoose.Schema({
 		required: true,
 		unique: true
 	},
-	hashPassword: {
+	tchr_password: {
 		type: String,
 		required: true
 	},
-	user_type: {
-		type: String,
-		required: true
-	},
+	// user_type: {
+	// 	type: String,
+	// 	required: true
+	// },
 	tchr_mobile: {
 		type: Number,
 		required: true
@@ -26,20 +26,6 @@ const teacherSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	tchr_pic: {
-		type: String,
-		required: false
-	},
-	active: {
-		type: Boolean,
-		required: true,
-		default: 1
-	},
-	cKey: {
-		type: Boolean,
-		required: true,
-		default: 1
-	}
 }, {
 	timestamps: true
 })

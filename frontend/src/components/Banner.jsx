@@ -12,11 +12,11 @@ function Banner() {
               <li data-bs-target="#carouselIndicators" data-bs-slide-to="1"></li>
               <li data-bs-target="#carouselIndicators" data-bs-slide-to="2"></li>
             </ol>
-            <div className="carousel-inner">
+            <div className="carousel-inner" style={{color : "#5A4BDA "}}>
               <div className="carousel-item active">
                 <div className="py-5 row d-flex align-items-center">
-                  <div className="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
-                    <h1 className="banner-heading text-primary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                  <div className="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5" >
+                    <h1 className="banner-heading  display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line" >
                       Develop <strong>Strategies</strong> for 
                       <br/>Unlimited Learning
                     </h1>
@@ -24,7 +24,7 @@ function Banner() {
                       Never stop learning. Never stop exploring. Never stop growing. Never stop living. Never stop smiling.
                     </p>
                     <NavLink to="/" exact>
-                      <button type="button" className="btn rounded-pill btn-outline-primary btn-lg px-4">Know More</button>
+                      <button type="button" className="btn rounded-pill btn-outline-primary btn-lg px-4" style={{borderColor : "#5A4BDA " , color : "#5A4BDA"}}>Know More</button>
                     </NavLink>
                   </div>
                 </div>
@@ -32,29 +32,29 @@ function Banner() {
               <div className="carousel-item">
                 <div className="py-5 row d-flex align-items-center">
                   <div className="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
-                    <h1 className="banner-heading text-primary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                    <h1 className="banner-heading display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
                       Explore various <strong>Courses</strong>
                     </h1>
                     <p className="banner-body text-muted py-3">
                       We are offering a bunch of updated courses to make you market-ready. Start your journey now!
                     </p>
-                    <NavLink to="/" exact>
-                      <button type="button" className="btn rounded-pill btn-outline-primary btn-lg px-4">Explore Now</button>
-                    </NavLink>
+                    <NavLink to="/courses" exact>
+                      <button type="button" className="btn rounded-pill btn-outline-primary btn-lg px-4" style={{borderColor : "#5A4BDA ", color : "#5A4BDA"}}>Explore Now</button>
+                    </NavLink> 
                   </div>
                 </div>
               </div>
               <div className="carousel-item">
                 <div className="py-5 row d-flex align-items-center">
                   <div className="banner-content col-lg-8 col-8 offset-2 m-lg-auto text-left py-5 pb-5">
-                    <h1 className="banner-heading text-primary display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
+                    <h1 className="banner-heading display-3 mb-0 pb-5 mx-0 px-0 light-300 typo-space-line">
                       <strong>Test</strong> your limits
                     </h1>
                     <p className="banner-body text-muted py-3">
                       Attending the lectures alone are not enough. Take a step beyond by testing your knowledge with our updated tests.
                     </p>
                     <NavLink to="/" exact>
-                      <button type="button" className="btn rounded-pill btn-outline-primary btn-lg px-4">Get Started</button>
+                      <button type="button" className="btn rounded-pill btn-outline-primary  btn-lg px-4" style={{borderColor : "#5A4BDA ", color : "#5A4BDA"}} >Get Started</button>
                     </NavLink>
                   </div>
                 </div>

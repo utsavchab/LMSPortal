@@ -81,7 +81,6 @@ function Features() {
 
   return (
     <div>
-      {/* Rest of your code */}
 
       <div className="row gy-5 g-lg-5 mb-4">
         {courses &&
@@ -94,7 +93,7 @@ function Features() {
           ))}
       </div>
 
-      {/* Rest of your code */}
+      
     </div>
   );
 }

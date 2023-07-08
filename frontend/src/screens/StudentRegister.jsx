@@ -1,11 +1,26 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 import Footer from '../components/Footer';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-function StudentRegister() {
+import { register } from '../actions/studentActions';
+import { useDispatch, useSelector } from 'react-redux';
+
+ function StudentRegister({history}) {
   const [studentData , setStudentData] = useState({name : "" , email : "" , phone : "" , address : "" , password1 : "" , password2 : ""})
   const [registState , setRegisterState] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const studentLogin  = useSelector(state => state.studentLogin)
+  const{loading, err, studentInfo} = studentLogin
+  useEffect(() => {
+    if(studentInfo) {
+      history.push('/student_dashboard')
+    }
+  }, [history, studentInfo])
+
+
   function formChange(event){
 
       const {name , value} = event.target
@@ -20,18 +35,16 @@ function StudentRegister() {
       // console.log(password1 , password2)
       if(password1 === password2){
         const student = {name , email , phone , address , password1 , password2}
-        await axios.post('http://localhost:8000/student_register' , student)
-        .then(res => {alert("register success");console.log(res.data); setRegisterState(true) })
-        .catch(err => console.log("Error in server " +err))
-        setStudentData({name : "" , email : "" , phone : "" , address : "" , password1 : "" , password2 : ""})
+        dispatch(register(name,email,password1,phone,address))
+        
       }else{
         document.getElementById('password2').setCustomValidity('Password Does not Match')
       }
   }
 
-  if(registState){
-    return <Redirect to = "/student_login"></Redirect>
-  }
+  // if(registState){
+  //   return <Redirect to = "/student_login"></Redirect>
+  // }
 
   return (
     <div>
@@ -112,7 +125,7 @@ function StudentRegister() {
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

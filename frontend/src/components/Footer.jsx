@@ -4,9 +4,12 @@ import dotenv from "dotenv"
 dotenv.config()
 
 function Footer() {
+  const footerStyle = {
+    marginTop : "auto"
+  }
   return (
-    <div>
-      <footer className="bg-dark pt-4">
+    <div style={footerStyle}>
+      <footer className="bg-dark pt-4 user-select-none " >
         <div className="container">
           <div className="row py-4">
             <div className="col-lg-3 col-12 align-left">
@@ -118,17 +121,17 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-100 bg-primary py-3">
+        <div className="w-100 bg-light py-3">
           <div className="container">
             <div className="row pt-2">
               <div className="col-lg-6 col-sm-12">
-                <p className="text-lg-start text-center text-light light-300">
+                <p className="text-lg-start text-center text-dark light-300">
                   &copy; Copyright {(new Date().getFullYear())} EduTrac. All Rights Reserved.
                 </p>
               </div>
               <div className="col-lg-6 col-sm-12">
-                <p className="text-lg-end text-center text-light light-300">
-                  Designed by <a rel="noreferrer" className="text-decoration-none text-light" href="https://www.onedotall.in" target="_blank"><strong>Utsav Chabhadiya</strong></a>
+                <p className="text-lg-end text-center text-dark light-300">
+                  Designed by <a rel="noreferrer" className="text-decoration-none text-dark" href="https://utsavchab.me  " target="_blank"><strong><u>Utsav Chabhadiya</u>  </strong></a>
                 </p>
               </div>
             </div>

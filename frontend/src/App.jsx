@@ -17,7 +17,9 @@ import AddQuestion from "./screens/AddQuestion";
 import StudentLogin from "./screens/StudentLogin";
 import StudentRegister from "./screens/StudentRegister";
 import StudentDash from "./screens/StudentDash";
+import UnderConstruction from "./screens/UnderConstruction.jsx"
 import './App.css';
+import Footer from "./components/Footer";
 
 
 
@@ -42,8 +44,10 @@ function App() {
           <Route exact path="/student_login" component={StudentLogin} />
           <Route exact path="/student_register" component={StudentRegister} />
           <Route exact path="/student_dashboard" component={StudentDash} />
-          <Redirect to="/" />
+          <Route exact path="/*" component={UnderConstruction} />
+          {/* <Redirect to="/" /> */}
         </Switch>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

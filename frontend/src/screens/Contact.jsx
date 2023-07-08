@@ -36,25 +36,13 @@ function About() {
           <div className="col-lg-4">
             <div className="contact row mb-4">
               <div className="contact-icon col-lg-3 col-3">
-                <div className="py-3 mb-2 text-center border rounded text-info">
-                  <i className="display-6 bi-person-square"></i>
-                </div>
-              </div>
-              <ul className="contact-info list-unstyled col-lg-9 col-9  light-300">
-                <li className="h5 mb-0">Center Head</li>
-                <li className="text-muted">email@address.com</li>
-                <li className="text-muted">010-020-0340</li>
-              </ul>
-            </div>
-            <div className="contact row mb-4">
-              <div className="contact-icon col-lg-3 col-3">
                 <div className="border py-3 mb-2 text-center border rounded text-info">
                   <i className="display-6 bi-headset"></i>
                 </div>
               </div>
               <ul className="contact-info list-unstyled col-lg-9 col-9 light-300">
-                <li className="h5 mb-0">Front Desk</li>
-                <li className="text-muted">email@address.com</li>
+                <li className="h5 mb-0">Customer Suppor</li>
+                <li className="text-muted">contact.utsavchab@gmail.com</li>
                 <li className="text-muted">010-020-0340</li>
               </ul>
             </div>
@@ -66,7 +54,7 @@ function About() {
               </div>
               <ul className="contact-info list-unstyled col-lg-9 col-9 light-300">
                 <li className="h5 mb-0">Address</li>
-                <li className="text-muted">Assam</li>
+                <li className="text-muted">Surat, Gujarat</li>
                 <li className="text-muted">India</li>
               </ul>
             </div>
@@ -116,7 +104,7 @@ function About() {
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -22,7 +22,7 @@ export const listCourses = () => async(dispatch) => {
 	try {
 		dispatch({ type: COURSE_LIST_REQUEST})
 
-		const { data } = await axios.get('/api/course/all')
+		const { data } = await axios.get(`${process.env.REACT_APP_BASE}/api/course/all`)
 
 		dispatch({
 			type: COURSE_LIST_SUCCESS,
@@ -56,7 +56,7 @@ export const getSpecificCourses = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/course/specific`, config)
+    const { data } = await axios.get(`${process.env.REACT_APP_BASE}/api/course/specific`, config)
 
     dispatch({
       type: SPECIFIC_COURSE_LIST_SUCCESS,
@@ -92,7 +92,7 @@ export const createCourse = (course_name, course_outline, total_units) => async 
       },
     }
 
-    const { data } = await axios.post(`/api/course/create`, { course_name, course_outline, total_units}, config)
+    const { data } = await axios.post(`${process.env.REACT_APP_BASE}/api/course/create`, { course_name, course_outline, total_units}, config)
 
     dispatch({
       type: COURSE_CREATE_SUCCESS,
@@ -128,7 +128,7 @@ export const updateCourse = (course_name, course_outline, total_units, id) => as
       },
     }
 
-    const { data } = await axios.put(`/api/course/update/${id}`, { course_name, course_outline, total_units}, config)
+    const { data } = await axios.put(`${process.env.REACT_APP_BASE}/api/course/update/${id}`, { course_name, course_outline, total_units}, config)
 
     dispatch({
       type: COURSE_UPDATE_SUCCESS,
@@ -164,7 +164,7 @@ export const deleteCourse = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.delete(`/api/course/delete/${id}`, config)
+    const { data } = await axios.delete(`${process.env.REACT_APP_BASE}/api/course/delete/${id}`, config)
 
     dispatch({
       type: COURSE_DELETE_SUCCESS,

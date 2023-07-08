@@ -116,7 +116,7 @@ function AddQuestion() {
         />
 
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

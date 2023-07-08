@@ -6,7 +6,7 @@ function Tests() {
   return (
     <div>
       <section>
-        <div id="page_banner1" className="banner-wrapper bg-light w-100 py-5">
+        <div id="page_banner1" className="banner-wrapper bg-light w-100 py-5 user-select-none">
           <div className="container text-light d-flex justify-content-center align-items-center py-5 p-0">
             <div className="banner-content col-lg-8 col-12 m-lg-auto text-center">
               <h1 className="banner-heading display-3 pb-5 semi-bold-600 typo-space-line-center">Tests</h1>
@@ -91,7 +91,7 @@ function Tests() {
 
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -11,7 +11,7 @@ function TeacherDash({history}) {
 
   useEffect(() => {
     if(!teacherInfo) {
-      history.push('/')
+      history.push('/teacher_login')
     }
   }, [history, teacherInfo])
 
@@ -72,7 +72,7 @@ function TeacherDash({history}) {
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/teacherActions';
+import {studentLogout} from '../actions/studentActions'
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -9,11 +10,14 @@ function Navbar() {
 
   const teacherLogin = useSelector(state => state.teacherLogin)
   const {loading, error, teacherInfo} = teacherLogin
-
+  const studentLogin = useSelector(state => state.studentLogin)
+  const{studentInfo} = studentLogin
   const logoutHandler = () => {
     dispatch(logout())
   }
-
+  const studLogoutHandler = () =>{
+    dispatch(studentLogout())
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow">
@@ -50,9 +54,21 @@ function Navbar() {
               </li>
             </ul>
             <div className="navbar align-self-center d-flex">
-              
-              {teacherInfo ? (
+              {studentInfo && <>
+                  <NavLink className="nav-link text-success" to="/student_dashboard" exact title="Dashboard">
+                    Hi, <strong>{studentInfo.stud_name}</strong>
+                  </NavLink>
+                  <NavLink className="nav-link" to="/notices" exact title="Notices">
+                    <i className="bi-bell text-primary" role="img"></i>
+                  </NavLink>
+                  <NavLink className="nav-link" onClick={studLogoutHandler} to="" title="Logout">
+                    <i className="bi-box-arrow-right text-danger" role="img"></i>
+                  </NavLink>
+                </>}
+
+              {teacherInfo && 
                 <>
+                  {console.log(teacherInfo)}
                   <NavLink className="nav-link text-success" to="/teacher_dashboard" exact title="Dashboard">
                     Hi, <strong>{teacherInfo.tchr_name}</strong>
                   </NavLink>
@@ -63,19 +79,21 @@ function Navbar() {
                     <i className="bi-box-arrow-right text-danger" role="img"></i>
                   </NavLink>
                 </>
-                ) : (
+              }
+              {(!studentInfo &&  !teacherInfo) &&
                   <>
+                  {console.log(studentInfo)}
                     <NavLink className="nav-link" to="/notices" exact title="Notices">
                       <i className="bi-bell text-primary" role="img"></i>
                     </NavLink>
                     <NavLink className="nav-link" to="/student_login" exact title="Student">
-                      <i className="bi-person-badge text-primary" role="img"></i>
+                      <button className="btn  " role="img" style={{backgroundColor : "#5A4BDA", color : "white" ,  fontWeight : "500" }}>Login / Register</button>
                     </NavLink>
-                    <NavLink className="nav-link" to="/teacher_login" exact title="Teacher">
-                      <i className="bi-person-circle text-success" role="img"></i>
-                    </NavLink>
+                    {/* <NavLink className="nav-link" to="/teacher_login" exact title="Teacher">
+                      <button className="btn btn-primary" role="img">Teacher Login/Register</button>
+                    </NavLink> */}
                   </>
-                )}        
+                }        
         
             </div>
           </div>

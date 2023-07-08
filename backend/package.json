@@ -5,12 +5,12 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node backend/server",
-    "server": "nodemon backend/server",
-    "client": "npm start --prefix frontend",
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix ../frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "onedotall",
+  "author": "Utsav Chabhadiya",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

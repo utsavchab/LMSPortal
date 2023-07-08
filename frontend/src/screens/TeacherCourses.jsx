@@ -7,7 +7,7 @@ import TeacherNavs from '../components/TeacherNavs';
 import CourseForTeacher from '../components/CourseForTeacher';
 import Footer from '../components/Footer';
 
-function TeacherCourses() {
+function TeacherCourses({history}) {
 
   const [coursename, setCourseName] = useState('')
   const [units, setUnits] = useState('')
@@ -20,7 +20,7 @@ function TeacherCourses() {
 
   const specificCourseList = useSelector(state => state.specificCourseList)
   let {loading:scLoading, error:scError, spcfcourses} = specificCourseList
-  spcfcourses = spcfcourses.reverse()
+  // spcfcourses = spcfcourses.reverse()
 
   const courseUpdate = useSelector(state => state.courseUpdate)
   const {loading:cuLoading, error:cuError, updatedCourse} = courseUpdate
@@ -28,11 +28,17 @@ function TeacherCourses() {
   const courseDelete = useSelector(state => state.courseDelete)
   const {loading:dcLoading, error:dcError, courseDeleted} = courseDelete
 
+  const teacherLogin = useSelector(state => state.teacherLogin)
+  const { teacherInfo} = teacherLogin
   //console.log(spcfcourses)
 
   useEffect(() => {
+    if(!teacherInfo){
+      history.push('/teacher_login')
+    }
     dispatch(getSpecificCourses())
-  }, [dispatch, course, updatedCourse, courseDeleted])
+
+  }, [dispatch, course, updatedCourse, courseDeleted , teacherInfo ,history])
 
   const submitHandler = (event) => {
     event.preventDefault()
@@ -58,21 +64,21 @@ function TeacherCourses() {
                     <div className="form-floating">
                       <input type="text" className="form-control form-control-lg light-300" id="coursename" name="coursename" 
                       placeholder="Course name*" value={coursename} onChange={(event) => { setCourseName(event.target.value) }} required/>
-                      <label for="coursename light-300">Course Name*</label>
+                      <label >Course Name*</label>
                     </div>
                   </div>
                   <div className="col-10 col-lg-6 mb-4">
                     <div className="form-floating">
                       <input type="number" className="form-control form-control-lg light-300" id="units" name="units" 
                       placeholder="No. of Units*" value={units} onChange={(event) => { setUnits(event.target.value) }} required/>
-                      <label for="units light-300">Units*</label>
+                      <label >Units*</label>
                     </div>
                   </div>
                   <div className="col-10 col-lg-12 mb-4">
                     <div className="form-floating mb-4">
                       <input type="text" className="form-control form-control-lg light-300" id="outline" name="outline" 
                       placeholder="Course Outline*" value={outline} onChange={(event) => { setOutline(event.target.value) }} required/>
-                      <label for="outline light-300">Outline*</label>
+                      <label >Outline*</label>
                     </div>
                   </div>
                   <div className="col-md-12 col-10 mx-auto my-3">
@@ -85,7 +91,7 @@ function TeacherCourses() {
         </div>
       </section>
 
-      {scLoading ? (<Spinner/>) : spcfcourses === '' ? (
+      {/* {scLoading ? (<Spinner/>) : spcfcourses === '' ? (
 
         <section className="bg-light text-center py-5 w-100 min__height">
           <h2>
@@ -100,9 +106,9 @@ function TeacherCourses() {
             <CourseForTeacher spcfcourses={spcfcourses}/>
           </section>
 
-        )}
+        )} */}
       
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

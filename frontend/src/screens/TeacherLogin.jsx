@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../actions/teacherActions';
 import { NavLink } from "react-router-dom";
-//import Spinner from '../components/Spinner';
+
 import Alert from '../components/Alert';
 import Footer from '../components/Footer';
 
@@ -30,7 +30,7 @@ function TeacherLogin({history}) {
   return (
     <div>
       <section>
-        <div id="page_banner2" className="banner-wrapper bg-light w-100 py-5">
+        <div id="page_banner2" className="banner-wrapper bg-light w-100 py-5 user-select-none">
           <div className="container text-light d-flex justify-content-center align-items-center py-5 p-0">
             <div className="banner-content col-lg-8 col-12 m-lg-auto text-center">
             {error && <Alert type='danger'>{error}</Alert>}
@@ -41,14 +41,14 @@ function TeacherLogin({history}) {
                     <div className="form-floating">
                       <input type="text" className="form-control form-control-lg light-300" value={email} id="email" name="email" 
                       placeholder="Email*" onChange={(event) => { setEmail(event.target.value) }} required/>
-                      <label for="email light-300">Email*</label>
+                      <label>Email*</label>
                     </div>
                   </div>
                   <div className="col-lg-6 mb-4">
                     <div className="form-floating">
                       <input type="password" className="form-control form-control-lg light-300" value={password} id="password" name="password" 
                       placeholder="Password*" onChange={(event) => { setPassword(event.target.value) }} required/>
-                      <label for="password light-300">Password*</label>
+                      <label >Password*</label>
                     </div>
                   </div>
                   <div className="col-md-12 col-12 mx-auto my-3">
@@ -56,19 +56,19 @@ function TeacherLogin({history}) {
                   </div>
                 </form>
               </div>
-              <div className="col-10 col-md-8 mx-auto my-5 d-flex justify-content-around">
+              <div className="col-10 col-md-8 mx-auto my-5 d-flex flex-column justify-content-around">
                 <NavLink to="/student_login" exact>
-                  <button type="button" className="btn rounded-pill btn-light px-4">Student Login</button>
+                  <button type="button" className="btn rounded-pill btn-outline-info px-5 mb-4">Student Login</button>
                 </NavLink>
                 <NavLink to="/teacher_register" exact>
-                  <button type="button" className="btn rounded-pill btn-outline-info px-4">Register Now</button>
+                  <button type="button" className="btn rounded-pill btn-outline-info px-5">Teacher Register</button>
                 </NavLink>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }
